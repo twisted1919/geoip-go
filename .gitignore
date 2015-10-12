@@ -1,0 +1,4 @@
+*.mmdb.gz
+*.mmdb
+.DS_Store
+geoip-go
