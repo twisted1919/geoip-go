@@ -4,19 +4,19 @@ A simple GeoIP server written in GO language based on https://github.com/oschwal
 ### Install  
 ```
 # clone this repository locally (or download it) :  
-mkdir geoip-go && cd geoip-go && git clone https://github.com/twisted1919/geoip-go.git .  
+$ mkdir geoip-go && cd geoip-go && git clone https://github.com/twisted1919/geoip-go.git .  
 
 # install geoip2-golang library:
-go get github.com/oschwald/geoip2-golang
+$ go get github.com/oschwald/geoip2-golang
 
 # fetch latest geoip2 database:  
-wget http://geolite.maxmind.com/download/geoip/database/GeoLite2-City.mmdb.gz  
+$ wget http://geolite.maxmind.com/download/geoip/database/GeoLite2-City.mmdb.gz  
 
 # extract the database  
-gunzip GeoLite2-City.mmdb.gz  
+$ gunzip GeoLite2-City.mmdb.gz  
 
 # build the binary:  
-go build -o geoip-go  
+$ go build -o geoip-go  
 
 # if needed, edit config.json accordingly
 ```
