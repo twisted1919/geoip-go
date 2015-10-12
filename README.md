@@ -24,11 +24,11 @@ $ go build -o geoip-go
 ### Usage
 Start the server with proper flags, use -help to see available options:
 ```bash
-// start server
+# start server
 $ ./geoip-go -database.file="/var/data/GeoLite2-City.mmdb"
 ```
 ```php
-// client response after sending the request to http://localhost:8000/check/123.123.123.123
+# client response after sending a GET request to http://localhost:8000/check/123.123.123.123
 {
   "status": "success",
   "message": "OK [took 41.622µs]",
