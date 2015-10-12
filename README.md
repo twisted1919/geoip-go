@@ -6,7 +6,8 @@ A simple GeoIP server written in GO language based on https://github.com/oschwal
 # clone this repository locally (or download it) :  
 $ mkdir geoip-go && cd geoip-go && git clone https://github.com/twisted1919/geoip-go.git .  
 
-# install geoip2-golang library:
+# install go dependencies:  
+$ go get github.com/julienschmidt/httprouter  
 $ go get github.com/oschwald/geoip2-golang
 
 # fetch latest geoip2 database:  
