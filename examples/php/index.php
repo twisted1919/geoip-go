@@ -7,7 +7,7 @@ ini_set('display_errors', 1);
 function checkIpAddress($ipAddress) {
 
     if (!filter_var($ipAddress, FILTER_VALIDATE_IP)) {
-        throw new Exception("Please prvide a valid ip address!");
+        throw new Exception("Please provide a valid ip address!");
     }
 
     $ch = curl_init('http://127.0.0.1:8000/check/' . $ipAddress);
