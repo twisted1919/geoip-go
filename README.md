@@ -25,7 +25,7 @@ $ go build -o geoip-go
 Start the server with proper flags, use -help to see available options:
 ```bash
 # start server
-$ ./geoip-go -database.file="/var/data/GeoLite2-City.mmdb"
+$ ./geoip-go -database.file="GeoLite2-City.mmdb"
 ```
 ```php
 # client response after sending a GET request to http://localhost:8000/check/123.123.123.123
