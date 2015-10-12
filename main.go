@@ -103,10 +103,25 @@ func httpHandler(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 	}
 	tStart := time.Now()
 
-	ip := net.ParseIP(ps.ByName("ip"))
+	ipAddr := ps.ByName("ip")
+	ip := net.ParseIP(ipAddr)
+	if ip == nil {
+		ips, err := net.LookupIP(ipAddr)
+		if err != nil {
+			sendHTTPJSONResponse(w, "error", "Invalid ip address", nil)
+			return
+		}
+		ip = ips[0]
+	}
+
+	if ip == nil {
+		sendHTTPJSONResponse(w, "error", "Invalid ip address", nil)
+		return
+	}
+
 	record, err := db.City(ip)
 	if err != nil {
-		sendHTTPJSONResponse(w, "error", "Invalid ip address", nil)
+		sendHTTPJSONResponse(w, "error", "Cannot process request", nil)
 		return
 	}
 
