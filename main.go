@@ -125,11 +125,15 @@ func httpHandler(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 		return
 	}
 
+	stateName := ""
+	if len(record.Subdivisions) > 0 {
+		stateName = record.Subdivisions[0].Names["en"]
+	}
 	res := &geoDataResponse{
 		Continent:   record.Continent.Names["en"],
 		CountryName: record.Country.Names["en"],
 		CountryCode: record.Country.IsoCode,
-		StateName:   record.Subdivisions[0].Names["en"],
+		StateName:   stateName,
 		CityName:    record.City.Names["en"],
 		PostalCode:  record.Postal.Code,
 		Latitude:    record.Location.Latitude,
